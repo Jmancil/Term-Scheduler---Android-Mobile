@@ -27,4 +27,5 @@ public interface TermDAO {
     @RewriteQueriesToDropUnusedColumns
     @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
     List<Term> getAllTerms();
+
 }

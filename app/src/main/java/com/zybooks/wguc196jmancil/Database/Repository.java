@@ -32,7 +32,7 @@ public class Repository {
     }
 
     //Creates list of all Terms
-    public List<Term> getmAllTerms(Term term) {
+    public List<Term> getmAllTerms() {
         databaseExecutor.execute(()->{
             mAllTerms=mTermDAO.getAllTerms();
         });

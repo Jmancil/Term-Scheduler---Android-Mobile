@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Repository repository = new Repository(getApplication());
         repository.insertTerm(term);
         Term term2 = new Term(2 ,"3/3/333", "3/3/3333", "Testing2");
+//        repository.termDelete(term);
         repository.insertTerm(term2);
 
         //Creating a new Course to populate database

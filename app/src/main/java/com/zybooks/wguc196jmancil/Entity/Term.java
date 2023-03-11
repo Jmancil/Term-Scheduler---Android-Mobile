@@ -18,7 +18,14 @@ public class Term {
         Name = name;
     }
 
-    public Term() {
+    public Term(String start, String end, String name) {
+        Start = start;
+        End = end;
+        Name = name;
+    }
+
+    public Term(){
+
     }
 
     public int getTermID() {

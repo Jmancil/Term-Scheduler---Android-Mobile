@@ -22,7 +22,7 @@ public class activityTerms extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //View set to activity_terms
         setContentView(R.layout.activity_terms);
-        //Data pulled from Room DB with recyclerview
+        //Connecting recyclerview object with id from UI
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         //Creating repo to call getApp function
         Repository repository = new Repository(getApplication());

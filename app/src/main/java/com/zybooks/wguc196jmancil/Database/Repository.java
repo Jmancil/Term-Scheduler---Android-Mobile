@@ -117,7 +117,7 @@ public class Repository {
     }
 
     //Creates list of all courses
-    public List<Course> getmAllCourses(Course course){
+    public List<Course> getmAllCourses(){
         databaseExecutor.execute(()->{
             mAllCourses=mCourseDAO.getAllCourses();
         });

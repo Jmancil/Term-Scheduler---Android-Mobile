@@ -64,4 +64,12 @@ public class activitySelectedTerm extends AppCompatActivity {
         Intent intent = new Intent(activitySelectedTerm.this, activityTerms.class);
         startActivity(intent);
     }
+
+    public void deleteTerm(View view){
+        Repository repo = new Repository(getApplication());
+        Term term = new Term(Integer.parseInt(editID.getText().toString()), editStart.getText().toString(), editEnd.getText().toString(), editTermName.getText().toString());
+        repo.termDelete(term);
+        Intent intent = new Intent(activitySelectedTerm.this, activityTerms.class);
+        startActivity(intent);
+    }
 }

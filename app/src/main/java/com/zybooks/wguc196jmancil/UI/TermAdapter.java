@@ -8,7 +8,6 @@ import android.widget.TextView;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.zybooks.wguc196jmancil.Entity.Course;
 import com.zybooks.wguc196jmancil.Entity.Term;
 import com.zybooks.wguc196jmancil.R;
 import java.util.List;
@@ -78,7 +77,6 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
         }
     }
 
-
     public void setTerms(List<Term> terms){
         mTerms = terms;
         notifyDataSetChanged();
@@ -92,5 +90,4 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
             }
             else return 0;
     }
-
 }

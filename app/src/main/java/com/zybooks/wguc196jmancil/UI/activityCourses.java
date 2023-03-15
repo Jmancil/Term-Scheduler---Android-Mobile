@@ -35,7 +35,6 @@ public class activityCourses extends AppCompatActivity {
         recyclerView.setAdapter(courseAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         courseAdapter.setCourse(courseList);
-
     }
 
 

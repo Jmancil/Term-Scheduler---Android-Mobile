@@ -13,35 +13,46 @@ import com.zybooks.wguc196jmancil.Entity.Course;
 import com.zybooks.wguc196jmancil.R;
 import java.util.List;
 
+//Constructor and variable for recyclerview class to display data
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder>{
-
     class CourseViewHolder extends RecyclerView.ViewHolder{
+        //Textview courseItemView creation
         private final TextView courseItemView;
+        //Housing the view for courses
         private CourseViewHolder(View courseView){
             super(courseView);
+            /* Initializing created Textview using
+            courseListItem as GUI for course_list_item
+             */
             courseItemView = courseView.findViewById(R.id.courseListItem);
-
+            /*
+            ClickListner for item that is clicked
+            once item is clicked a new intent is created and data from
+            clicked item is attached
+             */
             courseView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int position = getAdapterPosition();
+                    //parses mCourse for position of item to send to adapter
                     final Course current = mCourse.get(position);
+                    //Creating intent for screen navigation
                     Intent intent = new Intent(context, activitySelectedCourse.class);
                     intent.putExtra("courseId", current.getCourseID());
                     intent.putExtra("start", current.getStart());
                     intent.putExtra("end", current.getEnd());
                     intent.putExtra("status", current.getStatus());
-                    intent.putExtra("ci", current.getCI());
-                    intent.putExtra("ciPhone", current.getCIPhone());
-                    intent.putExtra("ciEmail", current.getCIEmail());
+                    intent.putExtra("name", current.getCI());
+                    intent.putExtra("phone", current.getCIPhone());
+                    intent.putExtra("email", current.getCIEmail());
                     intent.putExtra("title", current.getTitle());
                     intent.putExtra("termId", current.getTermID());
                     context.startActivity(intent);
-
                 }
             });
         }
     }
+    //Variables for Course array and inflater for view
     private List<Course> mCourse;
     private final Context context;
     private final LayoutInflater mInflater;
@@ -51,6 +62,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         this.context = context;
     }
 
+    //Creating view holder and using previous mInflater
     @NonNull
     @Override
     public CourseAdapter.CourseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -72,6 +84,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
         notifyDataSetChanged();
     }
 
+    //Returns # of terms if its not 0
     @Override
     public int getItemCount() {
         if(mCourse != null){

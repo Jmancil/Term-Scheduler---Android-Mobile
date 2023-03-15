@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         Assessment assessment2 = new Assessment(2, "3/5/2023", "3/6/2023", "Assessment Two", 1);
         repository.insertAssessment(assessment2);
 
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

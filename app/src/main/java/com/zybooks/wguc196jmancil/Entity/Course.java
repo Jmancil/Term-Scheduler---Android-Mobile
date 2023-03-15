@@ -29,9 +29,20 @@ public class Course {
         TermID = termID;
     }
 
-    public Course() {
-
+    public Course( int termID, String title, String start, String end, String status, String CI, String CIPhone, String CIEmail){
+        TermID = termID;
+        Title = title;
+        Start = start;
+        End = end;
+        Status = status;
+        this.CI = CI;
+        this.CIPhone = CIPhone;
+        this.CIEmail = CIEmail;
     }
+
+public Course(){
+
+}
 
     public int getCourseID() {
         return CourseID;

@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="413dp"
-        android:layout_height="477dp"
+        android:layout_width="412dp"
+        android:layout_height="267dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -32,8 +32,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Enter Name"
                     android:editable="true"
+                    android:hint="Enter Name"
                     tools:ignore="Deprecated" />
             </LinearLayout>
 
@@ -136,5 +136,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
+
+    <ScrollView
+        android:layout_width="362dp"
+        android:layout_height="267dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.605">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/coursesForSelectedTerm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_200"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

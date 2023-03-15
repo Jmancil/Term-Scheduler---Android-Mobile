@@ -6,9 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.zybooks.wguc196jmancil.Database.Repository;
+import com.zybooks.wguc196jmancil.Entity.Course;
 import com.zybooks.wguc196jmancil.Entity.Term;
 import com.zybooks.wguc196jmancil.R;
+
+import java.util.List;
 
 /*Class dec for selectedTerm
 initializes data from selected term object from main screen
@@ -45,6 +51,14 @@ public class activitySelectedTerm extends AppCompatActivity {
         editStart.setText(start);
         editEnd.setText(end);
         editID.setText(Integer.toString(id));
+
+        RecyclerView recyclerView = findViewById(R.id.coursesForSelectedTerm);
+        Repository repo = new Repository(getApplication());
+        List<Course> courses = repo.getmAllCourses();
+        final CourseAdapter adapter = new CourseAdapter(this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter.setCourse(courses);
     }
 
 //    //Method to save term changes

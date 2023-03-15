@@ -17,9 +17,11 @@ public class Repository {
     private AssessmentDAO mAssessmentDAO;
     private CourseDAO mCourseDAO;
     private TermDAO mTermDAO;
+    private CourseDAO cCourseDao;
     private List<Assessment> mAllAssessments;
     private List<Course> mAllCourses;
     private List<Term> mAllTerms;
+    private List<Course> courseId;
 
     private static int NUMBER_OFTHREADS=4;
     static final ExecutorService databaseExecutor= Executors.newFixedThreadPool(NUMBER_OFTHREADS);
@@ -79,6 +81,17 @@ public class Repository {
             e.printStackTrace();
         }
     }
+    //Deletes Course
+    public void deleteCourse(Course course){
+        databaseExecutor.execute(()->{
+            mCourseDAO.deleteCourse(course);
+        });
+        try{
+            Thread.sleep(1000);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
 
     //Inserts Course
     public void insertCourse(Course course){
@@ -104,17 +117,19 @@ public class Repository {
         }
     }
 
-    //Deletes Course
-    public void deleteCourse(Course course){
-        databaseExecutor.execute(()->{
-            mCourseDAO.updateCourse(course);
-        });
-        try{
-            Thread.sleep(1000);
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     //Creates list of all courses
     public List<Course> getmAllCourses(){

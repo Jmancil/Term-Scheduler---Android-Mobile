@@ -52,6 +52,7 @@ public class activitySelectedTerm extends AppCompatActivity {
         editEnd.setText(end);
         editID.setText(Integer.toString(id));
 
+        //Recyclerview to populate courses for selected Term
         RecyclerView recyclerView = findViewById(R.id.coursesForSelectedTerm);
         Repository repo = new Repository(getApplication());
         List<Course> courses = repo.getmAllCourses();

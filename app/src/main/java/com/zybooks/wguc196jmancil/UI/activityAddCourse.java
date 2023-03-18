@@ -15,7 +15,7 @@ import com.zybooks.wguc196jmancil.UI.activityCourses;
 
 public class activityAddCourse extends AppCompatActivity {
 
-    //EditText creation for linking to activitySelectedCourse
+    //EditText creation for linking to activityAddCourse
       EditText courseTitle;
       EditText courseStart;
       EditText courseEnd;
@@ -64,6 +64,11 @@ public class activityAddCourse extends AppCompatActivity {
 
     public void assessment(View V){
         Intent intent = new Intent(activityAddCourse.this, activityAssessments.class);
+        startActivity(intent);
+    }
+
+    public void noteButton(View view){
+        Intent intent = new Intent(activityAddCourse.this, activityNote.class);
         startActivity(intent);
     }
 }

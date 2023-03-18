@@ -13,6 +13,7 @@ public class Assessment {
     private String End;
     private String Title;
     private int CourseID;
+//    private String Type;
 
     public Assessment(int ID, String start, String end, String title, int courseID) {
         this.ID = ID;
@@ -26,11 +27,17 @@ public class Assessment {
 
     }
 
+    public Assessment(String start, String end, String title, int courseID){
+        CourseID = courseID;
+        Start = start;
+        End = end;
+        Title = title;
+    }
+
 
     public int getID() {
         return ID;
     }
-
 
     public void setID(int ID) {
         this.ID = ID;
@@ -67,6 +74,14 @@ public class Assessment {
     public void setCourseID(int courseID) {
         CourseID = courseID;
     }
+
+//    public String getType(){
+//        return Type;
+//    }
+//
+//    public void setType(String type){
+//        String Type = type;
+//    }
 
 
 

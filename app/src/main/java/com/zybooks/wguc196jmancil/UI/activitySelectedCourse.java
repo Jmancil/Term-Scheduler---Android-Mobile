@@ -1,14 +1,22 @@
 package com.zybooks.wguc196jmancil.UI;
 
 import android.content.Intent;
+import android.graphics.LinearGradient;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.zybooks.wguc196jmancil.Database.Repository;
+import com.zybooks.wguc196jmancil.Entity.Assessment;
 import com.zybooks.wguc196jmancil.Entity.Course;
 import com.zybooks.wguc196jmancil.R;
+
+import java.util.List;
 
 /*
 Initializes data from selected course
@@ -73,6 +81,15 @@ public class activitySelectedCourse extends AppCompatActivity{
         editEmail.setText(email);
         editTermID.setText(Integer.toString(termid));
         editCourseID.setText(Integer.toString(courseid));
+
+        //RecyclerView to populate assessments for selected course
+        RecyclerView recyclerView = findViewById(R.id.assessmentRecycler);
+        Repository repo = new Repository(getApplication());
+        List<Assessment> assessments = repo.getmAllAssessments();
+        final AssessmentAdapter aAdapter = new AssessmentAdapter(this);
+        recyclerView.setAdapter(aAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        aAdapter.setmAssessment(assessments);
     }
 
     public void backToCourses(View view){
@@ -103,6 +120,16 @@ public class activitySelectedCourse extends AppCompatActivity{
                 editTitle.getText().toString(),Integer.parseInt(editTermID.getText().toString()));
         repository.deleteCourse(course);
         Intent intent = new Intent(activitySelectedCourse.this, activityCourses.class);
+        startActivity(intent);
+    }
+
+    public void noteButton(View view){
+        Intent intent = new Intent(activitySelectedCourse.this, activityNote.class);
+        startActivity(intent);
+    }
+
+    public void assessment(View V){
+        Intent intent = new Intent(activitySelectedCourse.this, activityAssessments.class);
         startActivity(intent);
     }
 }

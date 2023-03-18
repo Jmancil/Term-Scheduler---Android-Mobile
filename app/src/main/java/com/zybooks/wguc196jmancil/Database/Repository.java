@@ -117,20 +117,6 @@ public class Repository {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //Creates list of all courses
     public List<Course> getmAllCourses(){
         databaseExecutor.execute(()->{
@@ -182,7 +168,7 @@ public class Repository {
 
 
     //Creates List of all assessments
-    public List<Assessment> getmAllAssessments(Assessment assessment){
+    public List<Assessment> getmAllAssessments(){
         databaseExecutor.execute(()->{
             mAllAssessments=mAssessmentDAO.getAllAssessments();
         });

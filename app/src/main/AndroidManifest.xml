@@ -13,6 +13,11 @@
         android:theme="@style/Theme.WGUC196Jmancil"
         tools:targetApi="31">
 
+        <receiver
+            android:name=".UI.MyReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
         <activity
             android:name=".UI.MainActivity"
             android:exported="true">
@@ -26,7 +31,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".UI.activityTerms"
             android:exported="true">
@@ -40,7 +44,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".UI.activityAddTerm"
             android:exported="true">
@@ -54,7 +57,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".UI.activityCourses"
             android:exported="true">
@@ -68,7 +70,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".UI.activityAddCourse"
             android:exported="true">
@@ -82,7 +83,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".UI.activityAssessments"
             android:exported="true">
@@ -96,7 +96,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".UI.activityAddAssessment"
             android:exported="true">
@@ -110,7 +109,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".UI.activitySelectedTerm"
             android:exported="true">
@@ -124,7 +122,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".UI.activitySelectedCourse"
             android:exported="true">
@@ -138,7 +135,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".UI.activityNote"
             android:exported="true">
@@ -152,7 +148,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".UI.activitySelectedAssessment"
             android:exported="true">
@@ -166,8 +161,32 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity
+            android:name=".UI.activitySelectedNote"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.courses" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".UI.activityAddNote"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.courses" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
     </application>
 
 </manifest>

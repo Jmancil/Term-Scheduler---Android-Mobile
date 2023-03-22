@@ -2,42 +2,41 @@ package com.zybooks.wguc196jmancil.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.zybooks.wguc196jmancil.Database.Repository;
+import com.zybooks.wguc196jmancil.Entity.Note;
+import com.zybooks.wguc196jmancil.Entity.Term;
 import com.zybooks.wguc196jmancil.R;
 
+import java.util.List;
+
 public class activityNote extends AppCompatActivity {
+
     @Override
-    protected void onCreate(Bundle savedInstancestate){
-        super.onCreate(savedInstancestate);
-        setContentView(R.layout.activity_note);
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_notes);
+        RecyclerView recyclerView = findViewById(R.id.courseNotes);
+        Repository repo = new Repository(getApplication());
+        List<Note> notes = repo.getAllNotes();
+        final NoteAdapter noteAdapter = new NoteAdapter(this);
+        recyclerView.setAdapter(noteAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        noteAdapter.setNote(notes);
     }
 
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.notemenu, menu);
-        return true;
+    public void backToCourses(View view){
+        Intent intent = new Intent(activityNote.this, activityCourses.class);
+        startActivity(intent);
     }
 
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch(item.getItemId()){
-            case android.R.id.home:
-                this.finish();
-                return true;
-            case R.id.shareNote:
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT, "text from note field");
-                intent.putExtra(Intent.EXTRA_TITLE, "Message Title");
-                intent.setType("text/plain");
-                Intent shareIntent = Intent.createChooser(intent, null);
-                startActivity(shareIntent);
-                return true;
-            case R.id.notify:
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
+    public void newNote(View view){
+        Intent intent = new Intent(activityNote.this, activityAddNote.class);
+        startActivity(intent);
     }
 }

@@ -9,6 +9,8 @@ import androidx.room.Query;
 import androidx.room.RewriteQueriesToDropUnusedColumns;
 import androidx.room.RoomWarnings;
 import androidx.room.Update;
+
+import com.zybooks.wguc196jmancil.Entity.Course;
 import com.zybooks.wguc196jmancil.Entity.Term;
 import java.util.List;
 

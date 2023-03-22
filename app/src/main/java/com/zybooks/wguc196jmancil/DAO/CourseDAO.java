@@ -28,4 +28,10 @@ public interface CourseDAO {
     @RewriteQueriesToDropUnusedColumns
     List<Course> getAllCourses();
 
+//    @Query("SELECT * FROM course WHERE termID = :termId")
+//    List<Course> getCoursesForTerm(int termId);
+
+    @Query("SELECT * FROM course WHERE termID=:termID")
+    @RewriteQueriesToDropUnusedColumns
+    List<Course> getCoursesForTerm(int termID);
 }

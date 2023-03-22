@@ -24,7 +24,7 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
             /* Initializing created TextView using
                textView9 as GUI template from term_list_item.xml
              */
-            termItemView = termView.findViewById(R.id.textView9);
+            termItemView = termView.findViewById(R.id.termListItem);
             /*Clicklistener for item that is clicked
               once item is clicked a new intent is created and the data from
               the clicked item is attached.
